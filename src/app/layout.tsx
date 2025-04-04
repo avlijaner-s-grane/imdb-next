@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "./Providers";
+import Providers from "@/components/Providers";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "IMDb clone",
@@ -14,10 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`antialiased`}>
         <Providers>
           <Header />
+          <Navbar />
           {children}
         </Providers>
       </body>

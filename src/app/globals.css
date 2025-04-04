@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Force remove any remaining media queries */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+}

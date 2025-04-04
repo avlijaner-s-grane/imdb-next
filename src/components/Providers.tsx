@@ -3,7 +3,12 @@
 import { ThemeProvider } from "next-themes";
 function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <div className="transition-colors duration-300">{children}</div>
     </ThemeProvider>
   );
