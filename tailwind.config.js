@@ -1,0 +1,3 @@
+moduel.exports = {
+  darkMode: "class",
+};
