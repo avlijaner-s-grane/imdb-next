@@ -4,7 +4,7 @@ import { FiThumbsUp } from "react-icons/fi";
 
 function Card({ result }: { result: any }) {
   return (
-    <div className="group cursor-pointer sm:hover:shadow-amber-400 sm:shadow-md rounded-lg sm:border sm:border-black sm:m-2 transition-shadow duration-200">
+    <div className="group cursor-pointer sm:hover:shadow-amber-600 sm:shadow-md  rounded-lg sm:border sm:border-black sm:m-2 transition-all duration-200 hover:scale-110 ">
       <Link href={`/movie/${result.id}`}>
         <Image
           src={`https://image.tmdb.org/t/p/original/${
