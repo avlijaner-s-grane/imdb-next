@@ -1,13 +1,21 @@
 import Results from "@/components/Results";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const API_KEY = process.env.API_KEY;
 
-async function Home({ searchParams }: { searchParams: { genre?: string } }) {
-  const genre = searchParams.genre || "fetchTrending";
+async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const genre = params?.genre || "fetchTopRated";
   const res = await fetch(
     `https://api.themoviedb.org/3${
       genre === "fetchTopRated" ? "/movie/top_rated" : "/trending/all/week"
-    }?api_key=${API_KEY}&language=en-US&page=1`
+    }?api_key=${API_KEY}&language=en-US&page=1`,
+    { next: { revalidate: 100000 } }
   );
 
   const data = await res.json();
@@ -17,11 +25,12 @@ async function Home({ searchParams }: { searchParams: { genre?: string } }) {
   }
 
   const results = data.results;
-  console.log(results);
 
   return (
     <div>
-      <Results results={results} />
+      <Suspense fallback={<Loading />}>
+        <Results results={results} />
+      </Suspense>
     </div>
   );
 }

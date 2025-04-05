@@ -1,3 +1,4 @@
+const {heroui} = require('@heroui/theme');
 module.exports = {
   darkMode: "class",
   future: {
@@ -6,7 +7,12 @@ module.exports = {
   },
   purge: {
     enabled: process.env.NODE_ENV === "production",
-    content: ["./src/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  plugins: [heroui()],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/components/spinner.js"
+  ],
     // Add this options block:
     options: {
       safelist: [],

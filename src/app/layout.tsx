@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
+import Providers from "@/components/Providers";
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "@/components/Providers";
-import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "IMDb clone",
