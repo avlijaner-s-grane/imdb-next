@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
-import Providers from "@/components/Providers";
+
 import type { Metadata } from "next";
 import "./globals.css";
 import SearchBox from "@/components/SearchBox";
@@ -16,14 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en">
       <body className={`antialiased`}>
-        <Providers>
+        <div className="bg-stone-950 text-stone-100 h-max min-h-screen">
           <Header />
           <Navbar />
           <SearchBox />
           {children}
-        </Providers>
+        </div>
       </body>
     </html>
   );

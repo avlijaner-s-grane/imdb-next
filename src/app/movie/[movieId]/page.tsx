@@ -19,23 +19,23 @@ async function page({ params }: { params: Promise<{ movieId: string }> }) {
 
   return (
     <div className="w-full">
-      <div className="p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-6xl mx-auto md:space-x-6">
+      <div className="mt-5 gap-4 p-4 md:pt-8 flex flex-col md:flex-row content-center max-w-7xl mx-auto md:space-x-6">
         <Image
           src={srcPath}
           alt="Movie Poster"
-          width={500}
-          height={300}
+          width={700}
+          height={400}
           className="rounded-lg"
           style={{
             maxWidth: "100%",
             height: "100%",
           }}
         />
-        <div className="p-2">
-          <h2 className="text-lg mb-3 font-bold">
+        <div className="p-2  rounded-lg shadow shadow-stone-800 ">
+          <h2 className="text-2xl mb-5 font-bold">
             {movie.title || movie.name}
           </h2>
-          <p className="text-lg mb-3">{movie.overview}</p>
+          <p className="text-xl mb-4">{movie.overview}</p>
           <p className="mb-3">
             <span className="font-semibold mr-1">Release date: </span>
             {movie.release_date || movie.first_air_date}
