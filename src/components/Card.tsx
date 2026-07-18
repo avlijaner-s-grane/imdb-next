@@ -2,7 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiThumbsUp } from "react-icons/fi";
 
-function Card({ result }: { result: any }) {
+type CardResult = {
+  id: number | string;
+  backdrop_path?: string | null;
+  poster_path?: string | null;
+  title?: string | null;
+  name?: string | null;
+  overview?: string | null;
+  release_date?: string | null;
+  first_air_date?: string | null;
+  vote_count?: number;
+};
+
+function Card({ result }: { result: CardResult }) {
   return (
     <div className="group cursor-pointer sm:hover:shadow-amber-600 sm:shadow-md  rounded-lg sm:border sm:border-black sm:m-2 transition-all duration-200 hover:scale-110 ">
       <Link href={`/movie/${result.id}`}>

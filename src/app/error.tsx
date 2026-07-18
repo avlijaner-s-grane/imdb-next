@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-
-function Error({ error, reset }: { error: Error; reset: () => void }) {
+function Error({ reset }: { error: Error; reset: () => void }) {
   //   useEffect(
   //     function () {
   //       console.log(error);
